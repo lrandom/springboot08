@@ -1,5 +1,6 @@
 package niit.com.vn.springboot08.controller;
 
+import niit.com.vn.springboot08.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,10 @@ public class HomeController {
     public String index(Model model) {
         model.addAttribute("name", "Nguyen Van A");
         model.addAttribute("age", 20);
+        User user = new User();
+        user.name="Nguyen Van B";
+        user.age="30";
+        model.addAttribute("user", user);
         return "index";
     }
 
