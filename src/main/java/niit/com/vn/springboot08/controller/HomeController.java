@@ -22,7 +22,7 @@ public class HomeController {
 
         String[] names = {"Nguyen Van C", "Nguyen Van D", "Nguyen Van E"};
         model.addAttribute("names", names);
-        return "index";
+        return "index2";
     }
 
     @GetMapping("/about")
