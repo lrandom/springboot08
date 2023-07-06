@@ -17,9 +17,10 @@ public class UserController {
     }
 
     @PostMapping("/user/save")
-    public void save(User user) {
+    public String save(User user) {
         System.out.println("Name: " + user.name);
         System.out.println("Address: " + user.address);
         System.out.println("Age: " + user.age);
+        return "redirect:/user/add";
     }
 }

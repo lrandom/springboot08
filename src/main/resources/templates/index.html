@@ -7,6 +7,8 @@
     <script th:src="@{/main.js}"></script>
 </head>
 <body>
+<div th:replace="commons/nav :: nav"></div>
+
 <h1>Index Page</h1>
 <p th:text="${name}"></p>
 <p th:text="${age}"></p>
@@ -38,5 +40,7 @@
         <span th:text="${name}"></span>
     </li>
 </ul>
+
+<div th:replace="commons/nav :: footer"></div>
 </body>
 </html>
