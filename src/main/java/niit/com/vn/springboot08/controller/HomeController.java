@@ -15,9 +15,13 @@ public class HomeController {
         model.addAttribute("name", "Nguyen Van A");
         model.addAttribute("age", 20);
         User user = new User();
-        user.name="Nguyen Van B";
-        user.age="30";
+        user.name = "Nguyen Van B";
+        user.age = 30;
         model.addAttribute("user", user);
+        model.addAttribute("weather", "sunny");
+
+        String[] names = {"Nguyen Van C", "Nguyen Van D", "Nguyen Van E"};
+        model.addAttribute("names", names);
         return "index";
     }
 
@@ -26,14 +30,15 @@ public class HomeController {
         return "test/about";
     }
 
-    @PostMapping("/do-login")
+/*    @PostMapping("/do-login")
     public String doLogin() {
         return "index";
     }
+
     // @GetMapping
     @RequestMapping(path = "/login",
-            method = { RequestMethod.GET, RequestMethod.POST })
+            method = {RequestMethod.GET, RequestMethod.POST})
     public String login() {
         return "login";
-    }
+    }*/
 }

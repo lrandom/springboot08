@@ -15,5 +15,28 @@
     <p th:text="*{name}"></p>
     <p th:text="*{age}"></p>
 </div>
+
+<p th:text="#{message.hello}"></p>
+<p th:text="#{message.welcome}"></p>
+
+<p th:text="${1+10}"></p>
+
+<p th:text="'test'+'test 2'"></p>
+<p th:text="|Hello ${user.name}|"></p>
+
+<p th:if="${user.age >= 30}" th:text="${'Thanh niên'}"></p>
+<p th:unless="${user.age > 20}" th:text="'Thanh thiếu niên'"></p>
+
+<p th:switch="${weather}">
+    <span th:case="'sunny'" th:text="'Đi xem phim'"></span>
+    <span th:case="'windy'" th:text="'Ở nhà ngủ'"></span>
+    <span th:case="'storm'" th:text="'Đi trú'"></span>
+</p>
+
+<ul>
+    <li th:each="name : ${names}">
+        <span th:text="${name}"></span>
+    </li>
+</ul>
 </body>
 </html>
