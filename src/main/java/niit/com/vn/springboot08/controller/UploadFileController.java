@@ -3,7 +3,9 @@ package niit.com.vn.springboot08.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileOutputStream;
 
@@ -15,10 +17,10 @@ public class UploadFileController {
     }
 
     @PostMapping("/upload-file-handler")
-    public String uploadFileHandler(@RequestPart("img") byte[] file) {
+    public String uploadFileHandler(@RequestParam("img") MultipartFile file) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream("/Users/lrandom/Documents/uploads/abc.jpg");
-            fileOutputStream.write(file);
+            FileOutputStream fileOutputStream = new FileOutputStream("/Users/lrandom/Documents/uploads/"+file.getOriginalFilename());
+            fileOutputStream.write(file.getBytes());
         } catch (Exception e) {
             e.printStackTrace();
         }
