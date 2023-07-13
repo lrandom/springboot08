@@ -2,8 +2,10 @@ package niit.com.vn.springboot08;
 
 import lombok.Data;
 
+import java.io.Serializable;
 
-public class User {
+
+public class User implements Serializable {
     public String name;
     public String address;
     public int age;
