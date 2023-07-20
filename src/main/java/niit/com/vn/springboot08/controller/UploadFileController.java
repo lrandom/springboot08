@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
@@ -44,4 +45,9 @@ public class UploadFileController {
         }
         return "redirect:upload-file";
     }
+
+/*    @GetMapping("/file")
+    public String serveFile() {
+        BufferedReader bufferedReader = new BufferedReader();
+    }*/
 }
