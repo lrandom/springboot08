@@ -20,14 +20,15 @@ public class CrudCategoryController {
     public String add(@RequestParam(value = "name", defaultValue = "") String name) {
         if (!name.equals("")) {
             categoryDao.insert(name);
+            return "redirect:/admin/categories/list";
         }
-        return "redirect:/admin/categories/list";
+        return "categories/add";
     }
 
     @GetMapping(value = "/list")
     public String list(Model model) {
         model.addAttribute("list", categoryDao.getAll());
-        return "redirect:/admin/categories/list";
+        return "categories/list";
     }
 
     @RequestMapping(value = "/edit/{id}")

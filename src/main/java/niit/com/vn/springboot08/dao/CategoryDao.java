@@ -26,7 +26,7 @@ public class CategoryDao {
     public boolean update(int id, String name) {
         try {
             String sql = "UPDATE categories SET name = ? WHERE id = ?";
-            jdbcTemplate.update(sql, name, id);
+            jdbcTemplate.update(sql, id, name);
         } catch (Exception e) {
             return false;
         }
