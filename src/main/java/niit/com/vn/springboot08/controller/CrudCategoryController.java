@@ -38,4 +38,6 @@ public class CrudCategoryController {
         model.addAttribute("list", categories);
         return "categories/list";
     }
+
+    
 }
