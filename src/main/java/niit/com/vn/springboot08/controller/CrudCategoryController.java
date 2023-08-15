@@ -1,45 +1,35 @@
 package niit.com.vn.springboot08.controller;
 
-import niit.com.vn.springboot08.dao.CategoryDao;
+import niit.com.vn.springboot08.entities.Category;
+import niit.com.vn.springboot08.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller("crudCategoryController")
 @RequestMapping(value = "/admin/categories")
 public class CrudCategoryController {
-
     @Autowired
-    CategoryDao categoryDao;
+    private CategoryRepository categoryRepository;
 
-    @RequestMapping(value = "/add")
-    public String add(@RequestParam(value = "name", defaultValue = "") String name) {
-        if (!name.equals("")) {
-            categoryDao.insert(name);
-            return "redirect:/admin/categories/list";
-        }
+    @GetMapping("/add")
+    public String add(Model model) {
         return "categories/add";
     }
 
-    @GetMapping(value = "/list")
+    @PostMapping("/add")
+    public String add(@RequestParam("name") String name, Model model) {
+        Category category = new Category();
+        category.setName(name);
+        categoryRepository.save(category);
+        return "redirect:/admin/categories/add";
+    }
+
+    @GetMapping("/")
     public String list(Model model) {
-        model.addAttribute("list", categoryDao.getAll());
+        Iterable<Category> categories = categoryRepository.findAll();
+        model.addAttribute("list", categories);
         return "categories/list";
     }
-
-    @RequestMapping(value = "/edit/{id}")
-    public String edit(@PathVariable String id, @RequestParam("name") String name) {
-        return "categories/edit";
-    }
-
-    @GetMapping(value = "/delete/{id}")
-    public String delete(@PathVariable String id) {
-        categoryDao.delete(Integer.parseInt(id));
-        return "redirect:/admin/categories/list";
-    }
-
 }
