@@ -24,5 +24,7 @@
     </tr>
     </tbody>
 </table>
+<a th:each="pageNumber: ${#numbers.sequence(1,totalPage+1)}"
+   th:text="${pageNumber}" th:href="@{/admin/categories/(page=${pageNumber})}"></a>
 </body>
 </html>
