@@ -2,6 +2,7 @@ package niit.com.vn.springboot08.controller;
 
 import niit.com.vn.springboot08.entities.Category;
 import niit.com.vn.springboot08.repositories.CategoryRepository;
+import niit.com.vn.springboot08.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,9 @@ public class CrudCategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @GetMapping("/add")
     public String add(Model model) {
         return "categories/add";
@@ -20,9 +24,7 @@ public class CrudCategoryController {
 
     @PostMapping("/add")
     public String add(@RequestParam("name") String name, Model model) {
-        Category category = new Category();
-        category.setName(name);
-        categoryRepository.save(category);
+        categoryService.saveCategory(name);
         return "redirect:/admin/categories/add";
     }
 
