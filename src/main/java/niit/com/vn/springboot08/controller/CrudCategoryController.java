@@ -39,5 +39,5 @@ public class CrudCategoryController {
         return "categories/list";
     }
 
-    
+
 }
