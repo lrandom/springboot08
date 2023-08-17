@@ -11,7 +11,7 @@
         <div th:each="item:${products}">
             <h3 th:text="${item.getTitle()}"></h3>
             <p th:text="${item.getPrice()}"></p>
-            <a>Add To Cart</a>
+            <a th:href="@{/add-to-cart(id=${item.getId()})}">Add To Cart</a>
         </div>
     </div>
 </div>

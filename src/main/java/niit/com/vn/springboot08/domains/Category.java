@@ -1,6 +1,5 @@
-package niit.com.vn.springboot08.entities;
+package niit.com.vn.springboot08.domains;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

@@ -1,6 +1,6 @@
 package niit.com.vn.springboot08.controller;
 
-import niit.com.vn.springboot08.entities.Category;
+import niit.com.vn.springboot08.domains.Category;
 import niit.com.vn.springboot08.repositories.CategoryRepository;
 import niit.com.vn.springboot08.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
