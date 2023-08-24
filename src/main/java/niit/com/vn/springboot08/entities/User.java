@@ -19,4 +19,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Collection<Shoes> shoes;
+
+    @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
+    private Collection<Subject> subjects;
 }
