@@ -3,19 +3,22 @@ package niit.com.vn.springboot08.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity(name = "user_infos")
-public class UserInfo {
+@Entity(name = "shoes")
+public class Shoes {
     @jakarta.persistence.Id
     private Long id;
 
-    private String phone;
-    private String address;
+    private String name;
 
-    @OneToOne()
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
+
+    @ManyToOne()
     @JoinColumn(name = "user_id")
-    public User user;
+    User user;
+
 }

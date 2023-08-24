@@ -1,10 +1,9 @@
 package niit.com.vn.springboot08.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Collection;
 
 @Data
 @Entity(name = "users")
@@ -15,6 +14,9 @@ public class User {
     private String name;
     private int age;
 
-    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private UserInfo userInfo;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Collection<Shoes> shoes;
 }
